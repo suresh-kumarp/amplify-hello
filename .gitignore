@@ -41,3 +41,5 @@ amplify-gradle-config.json
 amplifytools.xcconfig
 CUserssurmarpbash_completion.doc_completion
 .eslintcache
+
+.vscode
