@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "sktodoLamda",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/items"
+        }
+    ],
+    "resourceName": "sktodo",
+    "apiName": "sktodo",
+    "functionArns": [
+        {
+            "lambdaFunction": "sktodoLamda"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-amplifyhello-dev-154929-authRole",
+        "unAuthRoleName": "amplify-amplifyhello-dev-154929-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "sktodoLamda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

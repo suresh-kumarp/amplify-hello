@@ -1,16 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-import Amplify from 'aws-amplify';
+import Amplify from "aws-amplify";
 //import Auth from '@aws-amplify/auth';
 import { withAuthenticator } from "aws-amplify-react"; // or 'aws-amplify-react-native';
-import aws_exports from './aws-exports';
+import aws_exports from "./aws-exports";
+
+import { API } from "aws-amplify";
+
+import axios from "axios";
 
 // in this way you are only importing Auth and configuring it.
 Amplify.configure(aws_exports);
 
 class App extends React.Component {
+
+  callAmplifyApi = () => {
+    API.get('sktodo', '/items', {});
+  };
+
+  callSlsApi = () => {
+    axios
+      .get('https://204ddefgce.execute-api.ap-south-1.amazonaws.com/dev/todos')
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
@@ -18,6 +33,9 @@ class App extends React.Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>Hello, World!</p>
+          <button onClick={this.callAmplifyApi}>Call Amplify Rest API</button>
+          <hr/> 
+          <button onClick={this.callSlsApi}>Call Serverless Endpoint</button>
         </header>
       </div>
     );
