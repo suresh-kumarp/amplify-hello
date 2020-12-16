@@ -4,6 +4,7 @@ import "./App.css";
 
 import Amplify from "aws-amplify";
 //import Auth from '@aws-amplify/auth';
+import "@aws-amplify/ui/dist/style.css";
 import { withAuthenticator } from "aws-amplify-react"; // or 'aws-amplify-react-native';
 import aws_exports from "./aws-exports";
 
